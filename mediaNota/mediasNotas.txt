@@ -1,0 +1,4 @@
+pepe: 4.0
+ana: 7.0
+luisa: 9.0
+diego: 4.0
