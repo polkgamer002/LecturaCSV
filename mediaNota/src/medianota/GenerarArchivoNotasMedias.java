@@ -10,21 +10,21 @@ import java.io.IOException;
 public class GenerarArchivoNotasMedias {
 
     public static void main(String[] args) {
-        // Nombre del archivo de entrada y salida
+      
         String archivoEntrada = "alumnosNotas.txt";
         String archivoSalida = "mediasNotas.txt";
 
         try {
-            // Abre el archivo de entrada para lectura
+            // Abre el archivo para leer las notas de los alumnos
             BufferedReader br = new BufferedReader(new FileReader(archivoEntrada));
             
-            // Abre el archivo de salida para escritura
+            // Abre el archivo para escribir las medias de las notas de los alumnos
             BufferedWriter bw = new BufferedWriter(new FileWriter(archivoSalida));
 
             String linea;
-            // Lee cada línea del archivo de entrada
+            // Lee el primer archivo linea a linea
             while ((linea = br.readLine()) != null) {
-                // Separa la línea en partes usando el carácter ","
+                // Separa la línea por partes
                 String[] partes = linea.split(":");
                 String nombre = partes[0];
                 
@@ -35,7 +35,7 @@ public class GenerarArchivoNotasMedias {
                 }
                 double media = sumaNotas / (partes.length - 1);
 
-                // Escribe el nombre del alumno y su media en el archivo de salida
+                // Escribe la media de la nota de cada alumno en el archivo de salida
                 bw.write(nombre + ": " + media);
                 bw.newLine();
             }
@@ -43,7 +43,7 @@ public class GenerarArchivoNotasMedias {
             // Cierra los archivos
             br.close();
             bw.close();
-
+            //mensaje de confirmacion 
             System.out.println("Medias calculadas y guardadas en " + archivoSalida);
             
         } catch (IOException e) {
